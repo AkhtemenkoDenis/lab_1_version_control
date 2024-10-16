@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя сторінка</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #F5F5DC;
+        }
+
+        header {
+            position: relative;
+            color: #F5F5DC;
+            padding: 30px;
+            text-align: center;
+            background-color: #808000; /* Колір фону */
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 50%;
+            background-image: url('yourimage.jpg'); /* Ваше зображення */
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.5; /* Прозорість зображення */
+        }
+
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            perspective: 150px;
+            perspective-origin: 10% 10%;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            transition: transform 0.3s ease-in-out;
+            transform-style: preserve-3d;
+        }
+
+        nav ul li:hover {
+            transform: rotateX(50deg);
+        }
+
+        nav ul li a {
+            color: #F5F5DC;
+            background-color: #964B00;
+            text-decoration: none;
+            font-family: 'Courier New', monospace;
+        }
+
+        main {
+            padding: 20px;
+            position: relative;
+        }
+
+        .info-blocks {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .info-block {
+            background-color: #8A9A5B;
+            padding: 20px;
+            margin-bottom: 20px;
+            flex-basis: calc(50% - 20px);
+            transition: transform 0.5s ease-in-out;
+            border: 2px solid #FFBF00;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-block:hover {
+            transform: scale(1.1);
+            color: #FFBF00;
+        }
+
+        .info-block h2 {
+            margin-top: 0;
+            color: #F5F5DC;
+            padding: 5px 10px;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        @keyframes leaf-fall {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        @keyframes flower-fall {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        .leaf {
+            position: absolute;
+            background: url('leaf.png') no-repeat center center;
+            background-size: cover;
+            width: 70px;
+            height: 70px;
+            animation: leaf-fall 4s linear infinite;
+        }
+
+        .flower {
+            position: absolute;
+            background: url('flower.png') no-repeat center center;
+            background-size: cover;
+            width: 70px;
+            height: 70px;
+            animation: flower-fall 4s linear infinite;
+        }
+
+        .object {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            border: 2px solid #8B008B;
+            transform-style: preserve-3d;
+            animation: rotate 10s linear infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #C71585;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+            }
+            to {
+                transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+            }
+        }
+
+        .background-img {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: -1;
+        }
+
+        .marquee {
+            color: #FFBF00;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            padding: 10px;
+            white-space: nowrap;
+            overflow: visible;
+            animation: marquee-slide 20s linear infinite;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+
+        @keyframes marquee-slide {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        h1 {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+<div class="marquee">Для відвідувачів нашого магазину діє спеціальна пропозиція! Знижка 15% на всі хатні квіти тільки по середам!</div>
+<header>
+    <h1>ВАШ САД</h1>
+    <nav>
+        <ul>
+            <li><a href="#">Хатні рослини</a></li>
+            <li><a href="#">Вуличні рослини</a></li>
+            <li><a href="#">Акційний товар</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <div class="info-blocks">
+        <div class="info-block">
+            <h2>Листові рослини</h2>
+            <p>Огляньте наш вибір листових рослин у нашому онлайн магазині квітів, щоб створити затишний та зелений куточок у вашому домі. Завдяки широкому асортименту відмінних видів, ви знайдете ідеальну рослину, яка не тільки прикрасить ваш простір, а й збагатить його своєю природною красою та повітряною аурою.</p>
+            <div class="leaf" style="top: 30%; left: 90%;"></div>
+        </div>
+        <div class="info-block">
+            <h2>Квіткові рослини</h2>
+            <p>Запрошуємо вас оглянути наш вибір квіткових рослин у нашому онлайн магазині квітів. Від чарівних троянд до екзотичних орхідей, ми пропонуємо різноманіття квітів, які додадуть краси та аромату до вашого дому чи офісу. Нехай кожен день стане святом завдяки нашим чудовим квітковим композиціям, які привнесуть радість та свіжість у ваше життя.</p>
+            <div class="flower" style="top: 30%; left: 90%;"></div>
+        </div>
+    </div>
+    <div class="object" style="top: 100%; left: 85%;">Квіткова виставка 05.05.2024</div>
+</main>
+<img src="background.jpg" alt="Background Image" class="background-img">
+</body>
+</html>
